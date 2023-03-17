@@ -1,61 +1,44 @@
+# Hello Node!
 
-# R-Board
-Basketball scoring system, either on the same system with local JS or an expandable system with NodeJS that allows multiple connections and individual IDs
-![client](https://cdn.glitch.global/a592784b-3ddd-43ed-a2ed-5db7ac3ffeda/client.png?v=1679023615461)
-**How does it work (local)?**
-RBoard works by saving cookies to the system with one page, and reads it from any number of other pages on the same browser. This system is more immidiate than the NodeJS version, but is unable to be spread onto different systems.
+This project includes a Node.js server script and a web page that connects to it. The front-end page presents a form the visitor can use to submit a color name, sending the submitted value to the back-end API running on the server. The server returns info to the page that allows it to update the display with the chosen color. 🎨
 
-**#How does the NodeJS version work?**
-This version gives each individual user an url, which can be shared between devices. The local board sends the updated variable list whenever something is changed, or every one second otherwise. The server will recieve this message and transmits it to all listening clients, which evaluate the ID, and if it is identical it will display that list
+[Node.js](https://nodejs.org/en/about/) is a popular runtime that lets you run server-side JavaScript. This project uses the [Fastify](https://www.fastify.io/) framework and explores basic templating with [Handlebars](https://handlebarsjs.com/).
 
-Node will require:
-Express
-Socket.io
+_Last updated: 11 Jan 2023_
 
-Example url: [rboard.glitch.me](rboard.glitch.me)
-**How to use:**
-![server](https://cdn.glitch.global/a592784b-3ddd-43ed-a2ed-5db7ac3ffeda/server.png?v=1679023616975)Choose one of the top three rows for what you want to change.
+## Prerequisites
 
- - HOME SCR - home score
- - VISIT SCR - Visitor score
- - HOME FLS - home fouls
- - VISIT FLS - visitor fouls
- - HOME TOL - home timeouts left
- - VISIT TOL - visitor tomeouts left
- - HOME BNS - home bonus, | or | |
- - VISIT BNS - visitor bonus
- - CURR PLR - current player, or other message
- - CURR FLS - current player fould, or other message
- - POSS - possesion arrow, < or >
- - PERIOD - current period
- - TIME - current time **MUST BE IN FORM MM:SS  EX:(10:00)**
- - RESET ALL: reset all to defaults
- - BUZ OFF: no buzzer at game end
- - BUZ ON: buzzer enabled at game end
- ***VALUES***
- Choose one of the options above, then one of these operators:
- -  (+) add number
- -  (-) remove number
- -  (>) replace with number
- 
- ***NUMBERS***
- Choose a value to add, subtract, or replace
- 
- - 0-9
- - < or > (Possesion arrow)
- - | or | | (Bonus)
- - (:) (used W/ time)
- - CLR - clear current input
- - [custom] [<-] (choose a custom value **TYPE THEN CLICK <-**)
- 
-**OTHER STUFF**
-- BUZZ - buzz the buzzer for 1 second
-- STOP TIME - start the timer **NOTE: MUST PRESS THIS BEFORE TIME CHANGE**
-- START TIME - stop the timer
-- GO - Choose your values then press GO to change
+You'll get best use out of this project if you're familiar with basic JavaScript. If you've written JavaScript for client-side web pages this is a little different because it uses server-side JS, but the syntax is the same!
 
-The timer will buzz for 3 seconds when time runs out unless you manually turn it off
+## What's in this project?
 
+← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
 
-*LICENSE*
-You can host this on your own server, but you are required to give permission on all pages. You may not use this for commercial purposes, or redistribute an edited version's source code. 
+← `public/style.css`: The styling rules for the pages in your site.
+
+← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars template which builds these parameter values into the web page the visitor sees.
+
+← `package.json`: The NPM packages for your project's dependencies.
+
+← `src/`: This folder holds the site template along with some basic data files.
+
+← `src/pages/index.hbs`: This is the main page template for your site. The template receives parameters from the server script, which it includes in the page HTML. The page sends the user submitted color value in the body of a request, or as a query parameter to choose a random color.
+
+← `src/colors.json`: A collection of CSS color names. We use this in the server script to pick a random color, and to match searches against color names.
+
+← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
+
+## Try this next 🏗️
+
+Take a look in `TODO.md` for next steps you can try out in your new site!
+
+___Want a minimal version of this project to build your own Node.js app? Check out [Blank Node](https://glitch.com/edit/#!/remix/glitch-blank-node)!___
+
+![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
+
+## You built this with Glitch!
+
+[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
+
+- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
+- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.

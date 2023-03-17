@@ -1,0 +1,10 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+
+io.on('connection', (socket) => {
+  socket.on('vars', (o,t,tr) => {
+    console.log(o+t+tr)
+  });
+});
+</script>

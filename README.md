@@ -55,3 +55,7 @@ Example url: [rboard.glitch.me](rboard.glitch.me)
 - GO - Choose your values then press GO to change
 
 The timer will buzz for 3 seconds when time runs out unless you manually turn it off
+
+
+*LICENSE*
+You can host this on your own server, but you are required to give permission on all pages. You may not use this for commercial purposes, or redistribute an edited version's source code. 
